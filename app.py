@@ -20,7 +20,7 @@ def minutes(count):
         ending = 'минуты'
     else:
         ending = 'минут'
-    return f'Вернемся через {count} {ending}'
+    return f'Вы ввели: {count} {ending}'
 
 
 @app.route('/check_ident', methods=['POST'])
