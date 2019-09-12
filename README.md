@@ -68,12 +68,3 @@ curl -X POST http://0.0.0.0:5000/check_ident \
     
     ```
 
-3) Без Docker:
-
-    ```shell script
-    > pip install -r requirements.txt
-    
-    > python app.py
-    
-    ```
-
