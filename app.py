@@ -16,7 +16,7 @@ def minutes(count):
     last_digit = count % 10
     if last_digit == 1:
         ending = 'минуту'
-    elif last_digit in range(2, 4):
+    elif last_digit in range(2, 5):
         ending = 'минуты'
     else:
         ending = 'минут'
