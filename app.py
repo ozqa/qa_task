@@ -13,14 +13,17 @@ def hello_world():
 
 @app.route('/minutes/<int:count>', methods=['GET'])
 def minutes(count):
-    last_digit = count % 10
+    last_digit = count % 100
+    if last_digit not in range(11, 15):
+        last_digit = last_digit % 10
+
     if last_digit == 1:
         ending = 'минуту'
     elif last_digit in range(2, 5):
         ending = 'минуты'
     else:
         ending = 'минут'
-    return f'Вы ввели: {count} {ending}'
+    return f'Вернемся через {count} {ending}'
 
 
 @app.route('/check_ident', methods=['POST'])
@@ -31,7 +34,7 @@ def check_ident():
     if 'ident' in request.json:
         ident = request.json['ident']
     else:
-        return 400, 'Content Type is not json'
+        return 'Invalid format', 400
     if not re.match('^\d{5}-\d{5} \d$', ident):
         return 'Invalid format', 400
     positions = range(10, 1, -1)
