@@ -31,7 +31,7 @@ def check_ident():
     if 'ident' in request.json:
         ident = request.json['ident']
     else:
-        return 400, 'Content Type is not json'
+        return 'Content Type is not json', 400
     if not re.match('^\d{5}-\d{5} \d$', ident):
         return 'Invalid format', 400
     positions = range(10, 1, -1)
